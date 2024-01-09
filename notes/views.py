@@ -18,3 +18,8 @@ class NotesDetailView(DetailView):
     model = Notes
     context_object_name = 'note'
     template_name = 'notes/detail.html'
+
+class NotesUpdateView(UpdateView):
+    model = Notes
+    form_class = NotesForm
+    success_url = '/notes/list'

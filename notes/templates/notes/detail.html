@@ -6,4 +6,10 @@
 
   <p>{{note.content}}</p>
 </div>
+
+<div class="mt-5">
+<a href="{% url 'notes.list' %}" class="btn btn-secondary">Back to list</a>
+<a href="{% url 'notes.update' pk=note.id %}" class="btn btn-secondary">Edit</a>
+</div>
+
 {% endblock %}
