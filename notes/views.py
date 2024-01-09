@@ -1,11 +1,15 @@
 from django.shortcuts import render
+from django.http import Http404
+from django.views.generic import ListView, DetailView
 
 from .models import Notes
 
-def list(request):
-    notes = Notes.objects.all()
-    return render(request, 'notes/list.html', {'notes': notes})
+class NotesListView(ListView):
+    model = Notes
+    template_name = 'notes/list.html' # must add because default is notes/notes_list.html
+    context_object_name = 'notes'
 
-def detail(request, note_id):
-    note = Notes.objects.get(id=note_id)
-    return render(request, 'notes/detail.html', {'note': note})
+class NotesDetailView(DetailView):
+    model = Notes
+    context_object_name = 'note'
+    template_name = 'notes/detail.html'
