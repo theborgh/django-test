@@ -1,5 +1,7 @@
-<html>
-  <header><title>Django test</title></header>
-  
-  <body><h1>Django test: today is {{today}}</h1></body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Django test: today is {{today}}</h1>
+
+  <a href="{% url 'notes.list' %}" class="btn btn-primary">Check these notes!</a>
+{% endblock %}
